@@ -1,0 +1,27 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: zDay
+    network: goerli
+    source:
+      address: "0xFC4c746e516fE3Ca10cdCC80e0E9472E0F07273A"
+      abi: zDay
+      startBlock: 10180099
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - PositionClosed
+        - PositionOpened
+      abis:
+        - name: zDay
+          file: ./abis/zDay.json
+      eventHandlers:
+        - event: PositionClosed(indexed address,uint256,int256)
+          handler: handlePositionClosed
+        - event: PositionOpened(indexed address,uint8,uint256,uint256,uint256,uint256,uint256)
+          handler: handlePositionOpened
+      file: ./src/z-day.ts

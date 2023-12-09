@@ -1,0 +1,23 @@
+type PositionClosed @entity(immutable: true) {
+  id: Bytes!
+  user: Bytes! # address
+  exitPrice: BigInt! # uint256
+  profitOrLoss: BigInt! # int256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PositionOpened @entity(immutable: true) {
+  id: Bytes!
+  user: Bytes! # address
+  side: Int! # uint8
+  collateral: BigInt! # uint256
+  size: BigInt! # uint256
+  entryPrice: BigInt! # uint256
+  openTime: BigInt! # uint256
+  maxLoss: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

@@ -1,0 +1,8 @@
+{
+  "goerli": {
+    "zDay": {
+      "address": "0xFC4c746e516fE3Ca10cdCC80e0E9472E0F07273A",
+      "startBlock": 10180099
+    }
+  }
+}
